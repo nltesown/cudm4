@@ -1,0 +1,99 @@
+body,
+form,
+fieldset,
+div,
+label {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  vertical-align: top;
+}
+body {
+  margin: 0 auto;
+  border: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  font-family: Segoe UI, Arial, sans-serif;
+  font-size: 13px;
+}
+
+.main {
+  width: 90%; max-width: 1120px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+form {
+  padding: 12px;
+}
+hr {
+  clear: both;
+  visibility: hidden;
+}
+ul {
+  padding-left: 18px;
+}
+textarea {
+  width: 99%;
+  margin: 0 0 8px 0;
+  border: solid 1px #666;
+  padding: 2px 1px;
+  font-size: 16px;
+  font-family: monospace;
+  line-height: 1.25;
+}
+
+input[type="submit"] {
+  margin: 0 0 24px 0;
+  border: 0;
+  padding: 8px;
+  background-color: #66af63;
+  color: #000;
+  font-size: 16px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #53c44f;
+}
+
+
+input[type="checkbox"] {
+  margin: 0 4px;
+}
+
+#opts {
+  float: left;
+  width: 700px;
+  margin: 0 12px 12px 0;
+}
+
+#opts > div {
+  float: left;
+  width: 50%;
+  padding: 2px 12px 2px 0;
+  box-sizing: border-box;
+}
+
+#opts > div:hover {
+  background-color: #9cf;
+}
+
+#htmlinfo {
+  float: left;
+  width: 300px;
+  border: solid 1px #999;
+  padding: 0 12px;
+}
+
+.markItUpHeader {
+  display: none;
+}
+
+.bcount {
+  background-color: #dd0;
+  padding: 1px 4px;
+  border: solid 1px #666;
+}
