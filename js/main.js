@@ -14,6 +14,7 @@ $(function() {
       { key: "P", openWith: "<p>", closeWith: "</p>" },
       { key: "B", openWith: "<strong>", closeWith: "</strong>" },
       { key: "I", openWith: "<em>", closeWith: "</em>" },
+      { key: "S", openWith: "<sup>", closeWith: "</sup>" },
       { key: "G", openWith: "« ", closeWith: " »" },
       { key: "L", replaceWith: function(h) { return h.selection.toLowerCase(); } },
       { key: "U", replaceWith: function(h) { return h.selection.toUpperCase(); } },
