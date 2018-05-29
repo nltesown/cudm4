@@ -24,7 +24,8 @@ $(function() {
     ]
   };
 
-  $input.markItUp(markItUpOpts).trigger("focus");
+  $input.markItUp(markItUpOpts);
+  $input.trigger("focus");
 
   $input.on("focus", function (e) {
     $(window).one("keyup", function (e) {
@@ -36,6 +37,7 @@ $(function() {
     cleaned = cudm($input.val());
 
     $input.val(cleaned);
+    window.setTimeout(function () { $input.trigger("focus"); }, 150);
 
     if ($("#autocopy").prop("checked") && cleaned !== "") {
       copyTextToClipboard(cleaned);
