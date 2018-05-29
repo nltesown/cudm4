@@ -117,7 +117,7 @@ var cudm = (function() {
 
     o = o.replace(/([^\n])(\n{3,})([^\n])/g, "$1\n$3");
 
-    o = o.replace(/((\x20)*&nbsp;+(\x20)*)+/g, "&nbsp;"); // Une succession d'espaces incluant au moins &nbsp; est remplacé par &nbsp;
+    o = o.replace(/((\x20)*(&nbsp;)+(\x20)*)+/g, "&nbsp;"); // Une succession d'espaces incluant au moins &nbsp; est remplacé par &nbsp;
     o = o.replace(/\x20{2,}/g, " "); // Remplace 2+ espaces par 1 espace
 
 
