@@ -8,15 +8,17 @@ $(function() {
     onCtrlEnter: { keepDefault: false, openWith: "\n<p>", closeWith: "</p>\n" },
     onTab: { keepDefault: false, openWith: "  " },
     markupSet: [
-      { key: "1", openWith: "<h1>", closeWith: "</h1>", placeHolder: "Titre de niveau 1" },
-      { key: "2", openWith: "<h2>", closeWith: "</h2>", placeHolder: "Titre de niveau 2" },
-      { key: "3", openWith: "<h3>", closeWith: "</h3>", placeHolder: "Titre de niveau 3" },
+      { key: "1", openWith: "<h1>", closeWith: "</h1>", placeHolder: "Titre 1" },
+      { key: "2", openWith: "<h2>", closeWith: "</h2>", placeHolder: "Titre 2" },
+      { key: "3", openWith: "<h3>", closeWith: "</h3>", placeHolder: "Titre 3" },
       { key: "P", openWith: "<p>", closeWith: "</p>" },
       { key: "B", openWith: "<strong>", closeWith: "</strong>" },
       { key: "I", openWith: "<em>", closeWith: "</em>" },
       { key: "G", openWith: "« ", closeWith: " »" },
       { key: "L", replaceWith: function(h) { return h.selection.toLowerCase(); } },
       { key: "U", replaceWith: function(h) { return h.selection.toUpperCase(); } },
+      { key: "K", replaceWith: function(h) { return _.kebabCase(h.selection); } },
+      { key: "F", replaceWith: function(h) { return _(h.selection.split(" ")).map(function(d) { return _.upperFirst(d); } ) .value().join(" "); } },
       { key: " ", openWith: "&nbsp;" },
       { key: "6", openWith: " – " }
     ]
@@ -24,13 +26,20 @@ $(function() {
 
   $input.markItUp(markItUpOpts).trigger("focus");
 
+  $input.on("focus", function (e) {
+    $(window).one("keyup", function (e) {
+      $("#autocopylabel").removeClass("done");
+    });
+  });
+
   $(".submit").on("click", function(e) {
     cleaned = cudm($input.val());
 
     $input.val(cleaned);
 
-    if ($("#autocopy").prop("checked")) {
+    if ($("#autocopy").prop("checked") && cleaned !== "") {
       copyTextToClipboard(cleaned);
+      $("#autocopylabel").addClass("done");
     }
   });
 });

@@ -3,22 +3,17 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">-->
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono" rel="stylesheet"> 
     <link rel="stylesheet" href="css/main.css">
     <script src="js/lodash-4.17.10.min.js"></script>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jquery.markitup.js"></script>
     <script src="js/cudm.js"></script>
     <script src="js/main.js"></script>
-    <title>Clean Up da Mess 4</title>
+    <title>Clean Up da Mess v4-beta</title>
   </head>
   <body>
-
-
-
   <div class="main">
-
-
 <!--
     <div class="options">
       <input type="checkbox" id="pdf_lines"><label for="pdf_lines">Supprimer les sauts de lignes simples (PDF)</label>
@@ -30,20 +25,10 @@
       <input type="checkbox" id="mdbr" checked="true"><label for="mdbr">Préserver 2+ espaces en fin de ligne (saut de ligne Markdown)</label>
     </div>
 -->
-
-
-
-
     <button class="submit">Clean Up da Mess</button>
-    <input type="checkbox" id="autocopy" checked="checked"><label for="autocopy">Copier automatiquement dans le presse-papier</label>
-
-    <textarea id="input" rows="40"></textarea>
+    <input type="checkbox" id="autocopy" checked="checked"><label id="autocopylabel" for="autocopy">Copier automatiquement dans le presse-papier</label>
+    <textarea id="input"></textarea>
     <button class="submit">Clean Up da Mess</button>
   </div>
-
-
-
-
-
   </body>
 </html>
