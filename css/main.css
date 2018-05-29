@@ -37,6 +37,7 @@ button {
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
+  border-right: solid 2px #448d41; border-bottom: solid 2px #448d41;
 }
 
 button:hover {
