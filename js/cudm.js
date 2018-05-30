@@ -2,11 +2,10 @@
  *
  */
 var cudm = (function() {
+
   var defaultOpts = {
     protect: {
-      markdownLineBreaks: true,
-      nbsp: true,
-      oe: true
+      markdownLineBreaks: true
     }
   };
 
@@ -14,8 +13,7 @@ var cudm = (function() {
   // Ceux-ci sont retirés après les remplacements en appelant la fonction `unprotect`.
   var protectChar = "¤";
   var protectSequences = {
-    markdownLineBreaks: /\x20{2}$/gm
-    //, nbsp: /&nbsp;/g
+    markdownLineBreaks: /\x20{2}$/gm // Protège deux espaces en fin de ligne (saut de ligne Markdown)
   };
 
   function protect(seq, str) {
@@ -84,12 +82,11 @@ var cudm = (function() {
       });
 
     // Remplacements
-    o = o.replace(/\xAC/g, ""); // 2012-09-19 Supprime le caractère ¬ (logical not - utilisé par Word comme césure optionnelle)
-    o = o.replace(/[\r\n]/g, "\n"); // Normalise la séquence saut de ligne (devient \n)
+    o = o.replace(/\xAC/g, ""); // Supprime le caractère ¬ (logical not - utilisé par Word comme césure optionnelle)
+    o = o.replace(/\r\n*/g, "\n"); // Normalise la séquence saut de ligne Windows (\r\n devient \n) [utile ?]
 
     o = o.replace(/\xA0/g, "&nbsp;"); // Remplace espace insécable Unicode par &nbsp;
     o = o.replace(/\t/g, " "); // Remplace tab par espace
-    // o = o.replace(/[\xA0\t]/g, " "); // Remplace tabs et espace insécable par espace [NB : question : y a-t-il des espaces insécables ?]
 
     o = o.replace(/^\x20+|\x20+$/gm, ""); // Supprime espaces en début et fin de lignes
     o = o.replace(/^\n+|\n+$/g, ""); // Supprime les sauts de lignes et début et fin de document
@@ -98,7 +95,7 @@ var cudm = (function() {
     // Désactivé pour test (la même opération a lieu plus loin)
     // o = o.replace(/(\x20){2,}/g, " "); // Remplace 2+ espaces par 1 espace
 
-    o = o.replace(/(\x20|&nbsp;)([,\.])/g, "$2"); // Enlève espace devant virgule ou point
+    o = o.replace(/(\x20|&nbsp;)(,|\.(?!\.{2}))/g, "$2"); // Enlève espace devant virgule ou point (mais pas ...)
     o = o.replace(/…/g, "...");
     o = o.replace(/[’‘]/g, "'");
     o = o.replace(/[“”]/g, '"');
@@ -108,7 +105,7 @@ var cudm = (function() {
 
     o = o.replace(/\xAB\x20*/g, "« "); // Normalise les guillemets français
     o = o.replace(/\x20*\xBB/g, " »");
-    o = o.replace(/((")(?![^<]*>))([^"]*)((")(?![^<]*>))/g, "« $3 »"); // Remplace les guillemets droits par des guillemets français saud à l'intérieur des tags HTML.
+    o = o.replace(/((")(?![^<]*>))([^"]*)((")(?![^<]*>))/g, "« $3 »"); // Remplace les guillemets droits par des guillemets français sauf à l'intérieur des tags HTML.
 
     o = o.replace(/(\x20)([\?:!;\xBB])/gi, "&nbsp;$2"); // Remplace un espace par un espace insécable dans les cas usuels
     o = o.replace(/(\xAB)(\x20)/gi, "$1&nbsp;"); // Remplace un espace par un espace insécable après un guillemet français ouvrant

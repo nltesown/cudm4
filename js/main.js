@@ -19,7 +19,7 @@ $(function() {
       { key: "L", replaceWith: function(h) { return h.selection.toLowerCase(); } },
       { key: "U", replaceWith: function(h) { return h.selection.toUpperCase(); } },
       { key: "K", replaceWith: function(h) { return _.kebabCase(h.selection); } },
-      { key: "F", replaceWith: function(h) { return _(h.selection.split(" ")).map(function(d) { return _.upperFirst(d); } ) .value().join(" "); } },
+      { key: "I", replaceWith: function(h) { return _(h.selection.split(" ")).map(function(d) { return _.upperFirst(d); } ) .value().join(" "); } },
       { key: " ", openWith: "&nbsp;" },
       { key: "6", openWith: " – " }
     ]
