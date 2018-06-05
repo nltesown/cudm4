@@ -6,6 +6,7 @@ $(function() {
     nameSpace: "html",
     onShiftEnter: { keepDefault: false, replaceWith: "<br>" },
     onCtrlEnter: { keepDefault: false, openWith: "\n<p>", closeWith: "</p>\n" },
+    onCtrl: { keepDefault: false },
     onTab: { keepDefault: false, openWith: "  " },
     markupSet: [
       { key: "1", openWith: "<h1>", closeWith: "</h1>", placeHolder: "Titre 1" },
@@ -19,7 +20,7 @@ $(function() {
       { key: "L", replaceWith: function(h) { return h.selection.toLowerCase(); } },
       { key: "U", replaceWith: function(h) { return h.selection.toUpperCase(); } },
       { key: "K", replaceWith: function(h) { return _.kebabCase(h.selection); } },
-      { key: "I", replaceWith: function(h) { return _(h.selection.split(" ")).map(function(d) { return _.upperFirst(d); } ) .value().join(" "); } },
+      { key: "Y", replaceWith: function(h) { return _.startCase(h.selection.toLowerCase()); } },
       { key: " ", openWith: "&nbsp;" },
       { key: "6", openWith: " – " }
     ]
@@ -35,7 +36,8 @@ $(function() {
   });
 
   $(".submit").on("click", function(e) {
-    cleaned = cudm($input.val());
+
+    cleaned = cudm($input.val(), { protect: { markdownLineBreaks: false } });
 
     $input.val(cleaned);
     window.setTimeout(function () { $input.trigger("focus"); }, 150);

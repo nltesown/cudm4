@@ -76,8 +76,19 @@ button.copy:hover {
 .markItUpHeader, .markItUpFooter { display: none; }
 
 
+
+.cheatsheet, .controls {
+  float: left;
+  width: 49.75%;
+  box-sizing: border-box;
+}
+
+.cheatsheet { padding: 0 12px 0 0; }
+.controls { padding: 0 0 0 12px; }
+
+
 table {
-  width: 50%;
+  width: 100%;
   margin: 12px 0 48px 0;
 }
 
@@ -90,6 +101,7 @@ table, th, td {
 .col1 { width: 15%; }
 .col2 { width: 50%; }
 .col3 { width: 35%; }
+
 
 .cheatsheet code {
   font-family: "IBM Plex Mono", monospace;

@@ -1,5 +1,6 @@
 /**
- *
+ * Clean Up da Mess (CUDM)
+ * v4
  */
 var cudm = (function() {
 
@@ -48,7 +49,7 @@ var cudm = (function() {
       "()(oe)(so)",
       "()(oe)(stro)",
       "()(oe)(uf)",
-      "()(oe)(uvre)",
+      "()(oe)(uvr)",
       "(s)(oe)(ur)",
       "(v)(oe)(u)"
     ];
@@ -71,6 +72,8 @@ var cudm = (function() {
     opts.protect = _({})
       .assign(defaultOpts.protect, opts.protect)
       .value();
+
+    console.log(opts.protect);
 
     // Encodage des séquences protégées
     _(opts.protect)
