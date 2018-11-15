@@ -1,4 +1,3 @@
-
 body {
   position: relative;
   margin: 0 auto;
@@ -13,7 +12,9 @@ body {
 .header-container {
   position: fixed;
   background-color: #eee;
-  width: 100%; top: 0; left: 0;
+  width: 100%;
+  top: 0;
+  left: 0;
   border-bottom: solid 2px #ddd;
 }
 
@@ -25,14 +26,18 @@ body {
 }
 
 .main {
-  width: 90%; max-width: 1120px;
+  width: 90%;
+  max-width: 1120px;
   margin: 109px auto 36px auto;
   box-sizing: border-box;
 }
 
 textarea {
-  width: 99%; max-width: 99%; min-width: 99%;
-  min-height: 10vh; height: 50vh;
+  width: 99%;
+  max-width: 99%;
+  min-width: 99%;
+  min-height: 10vh;
+  height: 50vh;
   margin: 0 0 8px 0;
   border: solid 1px #666;
   padding: 2px 1px;
@@ -51,7 +56,8 @@ button {
   font-family: inherit;
   font-weight: 600;
   cursor: pointer;
-  border-right: solid 2px #448d41; border-bottom: solid 2px #448d41;
+  border-right: solid 2px #448d41;
+  border-bottom: solid 2px #448d41;
 }
 
 button:hover {
@@ -68,23 +74,42 @@ button.copy:hover {
 
 #autocopylabel.done:after {
   padding-left: .25rem;
-  font-weight: bold; font-size: 1.25rem;
+  font-weight: bold;
+  font-size: 1.25rem;
   color: #393;
   content: "✓";
 }
 
-.markItUpHeader, .markItUpFooter { display: none; }
+#autocopylabel.fail:after {
+  padding-left: .25rem;
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: #933;
+  content: "✘";
+}
+
+
+.markItUpHeader,
+.markItUpFooter {
+  display: none;
+}
 
 
 
-.cheatsheet, .controls {
+.cheatsheet,
+.controls {
   float: left;
   width: 49.75%;
   box-sizing: border-box;
 }
 
-.cheatsheet { padding: 0 12px 0 0; }
-.controls { padding: 0 0 0 12px; }
+.cheatsheet {
+  padding: 0 12px 0 0;
+}
+
+.controls {
+  padding: 0 0 0 12px;
+}
 
 
 table {
@@ -92,15 +117,25 @@ table {
   margin: 12px 0 48px 0;
 }
 
-table, th, td {
+table,
+th,
+td {
   border: solid 1px #666;
   border-collapse: collapse;
   padding: 2px 4px;
-} 
+}
 
-.col1 { width: 15%; }
-.col2 { width: 50%; }
-.col3 { width: 35%; }
+.col1 {
+  width: 15%;
+}
+
+.col2 {
+  width: 50%;
+}
+
+.col3 {
+  width: 35%;
+}
 
 
 .cheatsheet code {
