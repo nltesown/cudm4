@@ -2,7 +2,7 @@
  * Clean Up da Mess (CUDM)
  * v4
  */
-var cudm = (function() {
+var cudm = (function () {
 
   var defaultOpts = {
     protect: {
@@ -10,7 +10,7 @@ var cudm = (function() {
     }
   };
 
-  // Pour empêcher certaines séquences de caractères d'être affectées par les remplacements, on intercale temporairement un caractère arbitraire entre chaque caractère.
+  // Pour empêcher certaines séquences de caractères d'être affectées par les remplacements, on intercale temporairement un caractère arbitraire (par défaut ¤) entre chaque caractère.
   // Ceux-ci sont retirés après les remplacements en appelant la fonction `unprotect`.
   var protectChar = "¤";
   var protectSequences = {
@@ -18,7 +18,7 @@ var cudm = (function() {
   };
 
   function protect(seq, str) {
-    return str.replace(seq, function(s) {
+    return str.replace(seq, function (s) {
       return protectChar + s.split("").join(protectChar) + protectChar;
     });
   }
@@ -53,16 +53,16 @@ var cudm = (function() {
       "(s)(oe)(ur)",
       "(v)(oe)(u)"
     ];
-    sequences.forEach(function(seq) {
+    sequences.forEach(function (seq) {
       var find = new RegExp(seq, "gi");
-      str = str.replace(find, function(a, p1, p2, p3) {
+      str = str.replace(find, function (a, p1, p2, p3) {
         return p1 + (p2 === "oe" ? "œ" : "Œ") + p3;
       });
     });
     return str;
   }
 
-  return function(str, opts) {
+  return function (str, opts) {
     var o = str;
 
     opts = _({})

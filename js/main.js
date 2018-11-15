@@ -101,6 +101,22 @@ $(function () {
   $input.markItUp(markItUpOpts);
   $input.trigger("focus");
 
+
+  // function spaceShow(str) {
+  //   return str.replace(/ /g, "·");
+  // }
+
+  // function spaceHide(str) {
+  //   return str.replace(/·/g, " ");
+  // }
+
+  // $(window).on("keyup", function (e) {
+  //   if (e.which === 32) {
+  //     $input.val(spaceShow($input.val()));
+  //   }
+  // });
+
+
   $input.on("focus", function (e) {
     $(window).one("keyup", function (e) {
       $("#autocopylabel").removeClass("done fail");
@@ -111,7 +127,7 @@ $(function () {
 
     cleaned = cudm($input.val(), {
       protect: {
-        markdownLineBreaks: false
+        markdownLineBreaks: true
       }
     });
 
