@@ -10,7 +10,7 @@ var cudm = (function () {
     }
   };
 
-  // Pour empêcher certaines séquences de caractères d'être affectées par les remplacements, on intercale temporairement un caractère arbitraire (par défaut ¤) entre chaque caractère.
+  // Pour empêcher certaines séquences de caractères d'être affectées par les remplacements, on intercale temporairement un caractère arbitraire (par défaut `¤`) entre chaque caractère.
   // Ceux-ci sont retirés après les remplacements en appelant la fonction `unprotect`.
   var protectChar = "¤";
   var protectSequences = {
