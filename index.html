@@ -1,24 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500" rel="stylesheet"> 
-    <link rel="stylesheet" href="css/main.css">
-    <script src="js/lodash-4.17.10.min.js"></script>
-    <script src="js/jquery-3.2.1.min.js"></script>
-    <script src="js/jquery.markitup.js"></script>
-    <script src="js/cudm.js"></script>
-    <script src="js/main.js"></script>
-    <title>Clean Up da Mess v4-beta</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,500" rel="stylesheet">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script src="js/lodash-4.17.10.min.js"></script>
+  <script src="js/jquery-3.2.1.min.js"></script>
+  <script src="js/jquery.markitup.js"></script>
+  <script src="js/cudm.js"></script>
+  <script src="js/main.js"></script>
+  <title>Clean Up da Mess v4-beta</title>
+</head>
+
+<body>
 
 
   <div class="header-container">
     <div class="header">
       <button class="submit">Clean Up da Mess</button>
-      <input type="checkbox" id="autocopy" checked="checked"><label id="autocopylabel" for="autocopy">Copier automatiquement dans le presse-papier</label>
+      <input type="checkbox" id="autocopy" checked="checked"><label id="autocopylabel" for="autocopy">Copier
+        automatiquement dans le presse-papier</label>
     </div>
   </div>
 
@@ -30,38 +35,92 @@
 
     <div class="cheatsheet">
       <table>
-        <tr><th colspan="3">Insertion de balises HTML</th></tr>
-        <tr><td class="col1">Ctrl-P</td><td class="col2">paragraphe</td><td class="col3"><code>&lt;p&gt;&lt;/p&gt;</code></td></tr>
-        <tr><td>Ctrl-1</td><td>titre 1</td><td><code>&lt;h1&gt;&lt;/h1&gt;</code></td></tr>
-        <tr><td>Ctrl-2</td><td>titre 2</td><td><code>&lt;h2&gt;&lt;/h2&gt;</code></td></tr>
-        <tr><td>Ctrl-3</td><td>titre 3</td><td><code>&lt;h3&gt;&lt;/h3&gt;</code></td></tr>
-        <tr><td>Ctrl-I</td><td>italique</td><td><code>&lt;em&gt;&lt;/em&gt;</code></td></tr>
-        <tr><td>Ctrl-B</td><td>gras</td><td><code>&lt;strong&gt;&lt;/strong&gt;</code></td></tr>
-        <tr><td>Ctrl-S</td><td>exposant</td><td><code>&lt;sup&gt;&lt;/sup&gt;</code></td></tr>
+        <tr>
+          <th colspan="3">Insertion de balises HTML</th>
+        </tr>
+        <tr>
+          <td class="col1">Ctrl-P</td>
+          <td class="col2">paragraphe</td>
+          <td class="col3"><code>&lt;p&gt;&lt;/p&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-1</td>
+          <td>titre 1</td>
+          <td><code>&lt;h1&gt;&lt;/h1&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-2</td>
+          <td>titre 2</td>
+          <td><code>&lt;h2&gt;&lt;/h2&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-3</td>
+          <td>titre 3</td>
+          <td><code>&lt;h3&gt;&lt;/h3&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-I</td>
+          <td>italique</td>
+          <td><code>&lt;em&gt;&lt;/em&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-B</td>
+          <td>gras</td>
+          <td><code>&lt;strong&gt;&lt;/strong&gt;</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-S</td>
+          <td>exposant</td>
+          <td><code>&lt;sup&gt;&lt;/sup&gt;</code></td>
+        </tr>
         <tr>
           <th colspan="3">Caractères spéciaux / entités HTML</th>
         </tr>
 
-        <tr><td>Ctrl-G</td><td>guillemets français</td><td><code>« »</code></td></tr>
-        <tr><td>Ctrl-espace</td><td>espace insécable HTML</td><td><code>&amp;nbsp;</code></td></tr>
+        <tr>
+          <td>Ctrl-G</td>
+          <td>guillemets français</td>
+          <td><code>« »</code></td>
+        </tr>
+        <tr>
+          <td>Ctrl-espace</td>
+          <td>espace insécable HTML</td>
+          <td><code>&amp;nbsp;</code></td>
+        </tr>
         <tr>
           <th colspan="3">Transformations de la sélection</th>
-          <tr><td>Ctrl-L</td><td colspan="2">convertit la sélection en minuscules</td></tr>
-          <tr><td>Ctrl-U</td><td colspan="2">convertit la sélection en majuscules</td></tr>
-          <tr><td>Ctrl-I</td><td colspan="2">met une capitale initiale à chaque mot de la sélection</td></tr>
+        <tr>
+          <td>Ctrl-L</td>
+          <td colspan="2">convertit la sélection en minuscules</td>
+        </tr>
+        <tr>
+          <td>Ctrl-U</td>
+          <td colspan="2">convertit la sélection en majuscules</td>
+        </tr>
+        <tr>
+          <td>Ctrl-I</td>
+          <td colspan="2">met une capitale initiale à chaque mot de la sélection</td>
+        </tr>
         </tr>
       </table>
     </div>
 
     <div class="controls">
       <table>
-        <tr><td><input type="checkbox" id="pdf_lines" checked=""></td><td><label for="pdf_lines">Recoller les sauts de ligne simples (PDF)</label></td></tr>
-        <tr><td><input type="checkbox" id="markdown_line_breaks" checked=""></td><td><label for="markdown_line_breaks">Préserver deux espaces en fin de ligne (saut de ligne Markdown)</label></td></tr>
+        <tr>
+          <td><input type="checkbox" id="pdf_lines" checked=""></td>
+          <td><label for="pdf_lines">Recoller les sauts de ligne simples (PDF)</label></td>
+        </tr>
+        <tr>
+          <td><input type="checkbox" id="markdown_line_breaks" checked=""></td>
+          <td><label for="markdown_line_breaks">Préserver deux espaces en fin de ligne (saut de ligne Markdown)</label></td>
+        </tr>
       </table>
     </div>
 
 
 
   </div>
-  </body>
+</body>
+
 </html>
