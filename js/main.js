@@ -126,7 +126,7 @@ $(function () {
   $(".submit").on("click", function (e) {
 
     cleaned = cudm($input.val(), {
-      autoNbsp: false, // TODO: bind with checkbox
+      autoNbsp: !!$("#auto_nbsp").prop("checked"),
       protect: {
         markdownLineBreaks: true
       }
