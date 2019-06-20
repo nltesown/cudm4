@@ -112,7 +112,7 @@ var cudm = (function () {
     o = o.replace(/((")(?![^<]*>))([^"]*)((")(?![^<]*>))/g, "« $3 »"); // Remplace les guillemets droits par des guillemets français sauf à l'intérieur des tags HTML.
 
 
-    if (opts.autoNbsp == false) {
+    if (opts.autoNbsp == true) {
       o = o.replace(/(\x20)([\?:!;\xBB])/gi, "&nbsp;$2"); // Remplace un espace par un espace insécable dans les cas usuels
       o = o.replace(/(\xAB)(\x20)/gi, "$1&nbsp;"); // Remplace un espace par un espace insécable après un guillemet français ouvrant
       o = o.replace(/(\s–)/gi, "&nbsp;–"); // Demi-cadratins
