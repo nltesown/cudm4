@@ -5,6 +5,7 @@
 var cudm = (function () {
 
   var defaultOpts = {
+    autoNbsp: false,
     protect: {
       markdownLineBreaks: true
     }
@@ -110,10 +111,13 @@ var cudm = (function () {
     o = o.replace(/\x20*\xBB/g, " »");
     o = o.replace(/((")(?![^<]*>))([^"]*)((")(?![^<]*>))/g, "« $3 »"); // Remplace les guillemets droits par des guillemets français sauf à l'intérieur des tags HTML.
 
-    o = o.replace(/(\x20)([\?:!;\xBB])/gi, "&nbsp;$2"); // Remplace un espace par un espace insécable dans les cas usuels
-    o = o.replace(/(\xAB)(\x20)/gi, "$1&nbsp;"); // Remplace un espace par un espace insécable après un guillemet français ouvrant
-    o = o.replace(/(\s–)/gi, "&nbsp;–"); // Demi-cadratins
-    o = o.replace(/(–\s)/gi, "–&nbsp;"); // Demi-cadratins
+
+    if (opts.autoNbsp == false) {
+      o = o.replace(/(\x20)([\?:!;\xBB])/gi, "&nbsp;$2"); // Remplace un espace par un espace insécable dans les cas usuels
+      o = o.replace(/(\xAB)(\x20)/gi, "$1&nbsp;"); // Remplace un espace par un espace insécable après un guillemet français ouvrant
+      o = o.replace(/(\s–)/gi, "&nbsp;–"); // Demi-cadratins
+      o = o.replace(/(–\s)/gi, "–&nbsp;"); // Demi-cadratins
+    }
 
     o = o.replace(/([^\n])(\n{3,})([^\n])/g, "$1\n$3");
 
