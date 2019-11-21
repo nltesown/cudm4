@@ -8,7 +8,6 @@ body {
   font-size: 13px;
 }
 
-
 .header-container {
   position: fixed;
   background-color: #eee;
@@ -30,6 +29,14 @@ body {
   max-width: 1120px;
   margin: 109px auto 36px auto;
   box-sizing: border-box;
+}
+
+.bcount {
+  display: inline-block;
+  background-color: #dd0;
+  padding: 1px 4px;
+  border: solid 1px #666;
+  margin-bottom: 1px;
 }
 
 textarea {
@@ -73,7 +80,7 @@ button.copy:hover {
 }
 
 #autocopylabel.done:after {
-  padding-left: .25rem;
+  padding-left: 0.25rem;
   font-weight: bold;
   font-size: 1.25rem;
   color: #393;
@@ -81,20 +88,17 @@ button.copy:hover {
 }
 
 #autocopylabel.fail:after {
-  padding-left: .25rem;
+  padding-left: 0.25rem;
   font-weight: bold;
   font-size: 1.25rem;
   color: #933;
   content: "✘";
 }
 
-
 .markItUpHeader,
 .markItUpFooter {
   display: none;
 }
-
-
 
 .cheatsheet,
 .controls {
@@ -110,7 +114,6 @@ button.copy:hover {
 .controls {
   padding: 0 0 0 12px;
 }
-
 
 table {
   width: 100%;
@@ -136,7 +139,6 @@ td {
 .col3 {
   width: 35%;
 }
-
 
 .cheatsheet code {
   font-family: "IBM Plex Mono", monospace;

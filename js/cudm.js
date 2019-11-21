@@ -2,8 +2,7 @@
  * Clean Up da Mess (CUDM)
  * v4
  */
-var cudm = (function () {
-
+var cudm = (function() {
   var defaultOpts = {
     autoNbsp: false,
     protect: {
@@ -19,7 +18,7 @@ var cudm = (function () {
   };
 
   function protect(seq, str) {
-    return str.replace(seq, function (s) {
+    return str.replace(seq, function(s) {
       return protectChar + s.split("").join(protectChar) + protectChar;
     });
   }
@@ -54,16 +53,16 @@ var cudm = (function () {
       "(s)(oe)(ur)",
       "(v)(oe)(u)"
     ];
-    sequences.forEach(function (seq) {
+    sequences.forEach(function(seq) {
       var find = new RegExp(seq, "gi");
-      str = str.replace(find, function (a, p1, p2, p3) {
+      str = str.replace(find, function(a, p1, p2, p3) {
         return p1 + (p2 === "oe" ? "œ" : "Œ") + p3;
       });
     });
     return str;
   }
 
-  return function (str, opts) {
+  return function(str, opts) {
     var o = str;
 
     opts = _({})
@@ -111,7 +110,6 @@ var cudm = (function () {
     o = o.replace(/\x20*\xBB/g, " »");
     o = o.replace(/((")(?![^<]*>))([^"]*)((")(?![^<]*>))/g, "« $3 »"); // Remplace les guillemets droits par des guillemets français sauf à l'intérieur des tags HTML.
 
-
     if (opts.autoNbsp == true) {
       o = o.replace(/(\x20)([\?:!;\xBB])/gi, "&nbsp;$2"); // Remplace un espace par un espace insécable dans les cas usuels
       o = o.replace(/(\xAB)(\x20)/gi, "$1&nbsp;"); // Remplace un espace par un espace insécable après un guillemet français ouvrant
@@ -124,9 +122,10 @@ var cudm = (function () {
     o = o.replace(/((\x20)*(&nbsp;)+(\x20)*)+/g, "&nbsp;"); // Une succession d'espaces incluant au moins &nbsp; est remplacé par &nbsp;
     o = o.replace(/\x20{2,}/g, " "); // Remplace 2+ espaces par 1 espace
 
-
     // Décodage des séquences protégées
     o = unprotect(o);
+
+    o = _.trim(o);
 
     return o;
   };
