@@ -85,7 +85,10 @@ $(function() {
       {
         key: "Y",
         replaceWith: function(h) {
-          return _.startCase(h.selection.toLowerCase());
+          return _(h.selection)
+            .split(/\s+/)
+            .map(d => _.capitalize(d))
+            .join(" ");
         }
       },
       {
