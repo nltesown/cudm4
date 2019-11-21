@@ -86,7 +86,7 @@ $(function() {
         key: "Y",
         replaceWith: function(h) {
           return _(h.selection)
-            .split(/\s+/)
+            .split(/(\s+|-)/)
             .map(d => _.capitalize(d))
             .join(" ");
         }
