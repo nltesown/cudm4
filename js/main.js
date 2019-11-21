@@ -88,7 +88,7 @@ $(function() {
           return _(h.selection)
             .split(/(\s+|-)/)
             .map(d => _.capitalize(d))
-            .join(" ");
+            .join("");
         }
       },
       {
