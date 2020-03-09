@@ -42,7 +42,7 @@ var cudm = (function() {
       "(m)(oe)(urs)",
       "(n)(oe)(ud)",
       "()(oe)(cu)",
-      "()(oe)(dipe)",
+      "()(oe)(dip)",
       "()(oe)(dème)",
       "()(oe)(il)",
       "()(oe)(no)",
