@@ -2,23 +2,23 @@
  * Clean Up da Mess (CUDM)
  * v4
  */
-var cudm = (function() {
+var cudm = (function () {
   var defaultOpts = {
     autoNbsp: false,
     protect: {
-      markdownLineBreaks: true
-    }
+      markdownLineBreaks: true,
+    },
   };
 
   // Pour empêcher certaines séquences de caractères d'être affectées par les remplacements, on intercale temporairement un caractère arbitraire (par défaut `¤`) entre chaque caractère.
   // Ceux-ci sont retirés après les remplacements en appelant la fonction `unprotect`.
   var protectChar = "¤";
   var protectSequences = {
-    markdownLineBreaks: /\x20{2}$/gm // Protège deux espaces en fin de ligne (saut de ligne Markdown)
+    markdownLineBreaks: /\x20{2}$/gm, // Protège deux espaces en fin de ligne (saut de ligne Markdown)
   };
 
   function protect(seq, str) {
-    return str.replace(seq, function(s) {
+    return str.replace(seq, function (s) {
       return protectChar + s.split("").join(protectChar) + protectChar;
     });
   }
@@ -51,40 +51,43 @@ var cudm = (function() {
       "()(oe)(uf)",
       "()(oe)(uvr)",
       "(s)(oe)(ur)",
-      "(v)(oe)(u)"
+      "(v)(oe)(u)",
     ];
-    sequences.forEach(function(seq) {
+    sequences.forEach(function (seq) {
       var find = new RegExp(seq, "gi");
-      str = str.replace(find, function(a, p1, p2, p3) {
+      str = str.replace(find, function (a, p1, p2, p3) {
         return p1 + (p2 === "oe" ? "œ" : "Œ") + p3;
       });
     });
     return str;
   }
 
-  return function(str, opts) {
+  return function (str, opts) {
     var o = str;
 
-    opts = _({})
-      .assign(defaultOpts, opts)
-      .value();
+    opts = _({}).assign(defaultOpts, opts).value();
 
-    opts.protect = _({})
-      .assign(defaultOpts.protect, opts.protect)
-      .value();
+    opts.protect = _({}).assign(defaultOpts.protect, opts.protect).value();
 
     // console.log(opts.protect);
 
     // Encodage des séquences protégées
     _(opts.protect)
       .toPairs()
-      .filter(d => d[1] === true)
-      .map(d => d[0])
-      .forEach(d => {
+      .filter((d) => d[1] === true)
+      .map((d) => d[0])
+      .forEach((d) => {
         o = protect(protectSequences[d], o);
       });
 
     // Remplacements
+
+    // 2022-02-17 : remplacement des combinaisons caractère + diacritique par leur forme normalisée (1 caractère Unicode).
+    o = o.replace(
+      /([A-Z])[\u0300\u0301\u0302\u0303\u0304\u0308\u030b\u030c\u0322\u0327]/gi,
+      (c) => c.normalize()
+    );
+
     o = o.replace(/\xAC/g, ""); // Supprime le caractère ¬ (logical not - utilisé par Word comme césure optionnelle)
     o = o.replace(/\r\n*/g, "\n"); // Normalise la séquence saut de ligne Windows (\r\n devient \n) [utile ?]
 
