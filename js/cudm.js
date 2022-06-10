@@ -87,6 +87,11 @@ var cudm = (function () {
       /([A-Z])[\u0300\u0301\u0302\u0303\u0304\u0308\u030b\u030c\u0322\u0327]/gi,
       (c) => c.normalize()
     );
+    // (A TESTER) 2022-06-10 : puis suppression des éventuels caractères "combinants" subsistant.
+    o = o.replace(
+      /[\u0300\u0301\u0302\u0303\u0304\u0308\u030b\u030c\u0322\u0327]/gi,
+      ""
+    );
 
     o = o.replace(/\xAC/g, ""); // Supprime le caractère ¬ (logical not - utilisé par Word comme césure optionnelle)
     o = o.replace(/\r\n*/g, "\n"); // Normalise la séquence saut de ligne Windows (\r\n devient \n) [utile ?]
